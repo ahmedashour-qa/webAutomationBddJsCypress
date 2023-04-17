@@ -1,4 +1,4 @@
-# **WebAutomationCypress**
+# **webAutomationBddJsCypress**
 
 ## Used technologies:
 
@@ -8,5 +8,3 @@
 4. Azure DevOps
 
    ##### You can find the excution report depolyed on url below:
-
-   [https://ahmedashour-qa.github.io/WebAutomationCypress/]()

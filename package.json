@@ -1,0 +1,41 @@
+{
+  "name": "webautomationbddjscypress",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "cypress": "cypress run --browser chrome",
+    "report": "node reporter.js",
+    "pretty": "prettier --write \"./**/*.{js,json,yml}\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://ahmedashour23@dev.azure.com/ahmedashour23/testAutomation/_git/testAutomation"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@badeball/cypress-cucumber-preprocessor": "^15.1.4",
+    "@bahmutov/cypress-esbuild-preprocessor": "^2.2.0",
+    "cucumber-json-report-formatter": "^0.1.4",
+    "cypress": "^12.6.0",
+    "dayjs": "^1.11.7",
+    "multiple-cucumber-html-reporter": "^3.2.0",
+    "prettier": "^2.8.6"
+  },
+  "cypress-cucumber-preprocessor": {
+    "stepDefinitions": "cypress/e2e/step-definitions/*.{js,ts}",
+    "json": {
+      "enabled": true,
+      "output": "cypress/reports/json/cucumber-report.json",
+      "formater": "node",
+      "args": [
+        "cypress/report-formatter.js"
+      ]
+    },
+    "messages": {
+      "enabled": true,
+      "output": "cypress/reports/messages/cucumber-messages.ndjson"
+    }
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "plans": {
+    "lite": {
+      "ar": "لايت",
+      "en": "Lite"
+    },
+    "classic": {
+      "ar": "الأساسية",
+      "en": "Classic"
+    },
+    "premium": {
+      "ar": "بريميوم",
+      "en": "Premium"
+    }
+  },
+  "countries": {
+    "Saudi Arabia": {
+      "ar": "السعودية",
+      "en": "KSA"
+    },
+    "Bahrain": {
+      "ar": "البحرين",
+      "en": "Bahrain"
+    },
+    "Kuwait": {
+      "ar": "الكويت",
+      "en": "Kuwait"
+    }
+  },
+  "currencies": {
+    "SAR": {
+      "ar": "ريال سعودي",
+      "en": "SAR/month"
+    },
+    "BHD": {
+      "ar": "دينار بحريني",
+      "en": "BHD/month"
+    },
+    "KWD": {
+      "ar": "دينار كويتي",
+      "en": "KWD/month"
+    }
+  }
+}

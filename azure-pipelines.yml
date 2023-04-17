@@ -1,0 +1,45 @@
+pool:
+  name: Default
+steps:
+- task: NodeTool@0
+  displayName: 'Use Node 14.x'
+  inputs:
+    versionSpec: 14.x
+    checkLatest: true
+
+- task: Npm@1
+  displayName: 'npm install'
+  inputs:
+    verbose: false
+
+- task: Npm@1
+  displayName: 'npm run'
+  inputs:
+    command: custom
+    verbose: false
+    customCommand: 'run cypress'
+
+- task: Npm@1
+  displayName: 'generate report'
+  inputs:
+    command: custom
+    verbose: false
+    customCommand: 'run report'
+
+- task: MaciejMaciejewski.azure-pipelines-cucumber.PublishCucumberReport.PublishCucumberReport@1
+  displayName: 'Publish Cucumber Report'
+  inputs:
+    jsonDir: cypress/json
+    outputPath: cypress
+
+- task: AccidentalFish.githubpages-publish.AccidentalFish.GitHubPages-Publish.GitHubPagesPublish@1
+  displayName: 'Publishes to GitHub Pages'
+  inputs:
+    docPath: $(System.DefaultWorkingDirectory)/cypress/reports/*
+    githubusername: 'ahmedashour-qa'
+    githubemail: 'ahmed.ashour23@outlook.com'
+    githubaccesstoken: $(githubaccesstoken)
+    repositoryname: 'WebAutomationCypress'
+    branchname: main
+  condition: eq(variables['Agent.JobStatus'], 'SucceededWithIssues')
+
